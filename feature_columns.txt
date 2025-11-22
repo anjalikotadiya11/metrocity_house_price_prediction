@@ -1,0 +1,1 @@
+area_sqft,baths,beds,balcony,parking,floor,total_floors,status_ready,city_Ahmedabad,city_Bangalore,city_Chennai,city_Delhi,city_Hyderabad,city_Kolkata,city_Mumbai,city_None,city_Pune

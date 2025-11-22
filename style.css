@@ -1,0 +1,201 @@
+/* --- TEAL THEME STYLING (Lil' Homie Style) --- */
+
+:root {
+  /* Color Palette */
+  --bg-gradient-start: #e0f7fa;
+  --bg-gradient-end: #80deea;
+  --primary-color: #00bcd4;
+  --primary-hover: #00acc1;
+  --text-dark: #37474f;
+  --text-light: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --input-bg: rgba(255, 255, 255, 0.95);
+  --shadow-soft: 0 10px 30px rgba(0, 188, 212, 0.2);
+  --shadow-hover: 0 15px 35px rgba(0, 188, 212, 0.3);
+}
+
+body {
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-dark);
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* --- 1. Animated Background Blobs --- */
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(80px);
+  opacity: 0.6;
+  animation: float 20s infinite alternate ease-in-out;
+}
+
+.blob-1 {
+  top: -10%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: #4dd0e1;
+}
+
+.blob-2 {
+  bottom: -10%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: #26c6da;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(40px, 60px) rotate(10deg); }
+}
+
+/* --- 2. Glassmorphism Card --- */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: var(--shadow-soft);
+  width: 100%;
+  max-width: 650px; /* Slightly wider for better spacing */
+  position: relative;
+  z-index: 10;
+  padding: 3rem;
+  margin: 20px;
+}
+
+/* --- 3. Typography --- */
+h2.app-title {
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+p.app-subtitle {
+  text-align: center;
+  color: #607d8b;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+}
+
+/* --- 4. Form Styling --- */
+.form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #546e7a;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form-control, .form-select {
+  background-color: var(--input-bg);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.form-control:focus, .form-select:focus {
+  background-color: #ffffff;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(0, 188, 212, 0.15);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.form-control::placeholder {
+  color: #b0bec5;
+}
+
+/* --- 5. Interactive Button --- */
+.btn-predict {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  border: none;
+  padding: 16px;
+  border-radius: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 1rem;
+  color: white;
+  width: 100%;
+  margin-top: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 188, 212, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-predict:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  background: linear-gradient(135deg, #26c6da, var(--primary-color));
+}
+
+.btn-predict:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(0, 188, 212, 0.2);
+}
+
+/* --- 6. Result Display --- */
+.result-box {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
+  border: 1px solid rgba(0, 188, 212, 0.2);
+  text-align: center;
+  display: none; /* Hidden initially */
+  animation: fadeIn 0.5s ease-out;
+}
+
+.result-label {
+  color: #78909c;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.result-price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin: 0;
+  line-height: 1.2;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .glass-card {
+    padding: 2rem;
+    margin: 15px;
+  }
+  
+  .result-price {
+    font-size: 2rem;
+  }
+}
